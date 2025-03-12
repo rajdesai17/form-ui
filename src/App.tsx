@@ -381,6 +381,9 @@ function App() {
             </div>
           </div>
         );
+      
+      default:
+        return <div>Invalid step</div>;
     }
   };
 
@@ -396,10 +399,11 @@ function App() {
             <div className="flex justify-between items-center">
               {currentStep > 1 ? (
                 <button
+                  type="button"
                   onClick={() => setCurrentStep((prev) => (prev - 1) as Step)}
-                  className="back-button"
+                  className="inline-flex h-10 animate-shimmer items-center justify-center rounded-md border border-blue-800 bg-[linear-gradient(110deg,#1e40af,45%,#3b82f6,55%,#1e40af)] bg-[length:200%_100%] px-4 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-blue-50"
                 >
-                  <ChevronLeft className="h-4 w-4" />
+                  <ChevronLeft className="h-4 w-4 mr-1" />
                   <span>Back</span>
                 </button>
               ) : (
@@ -408,17 +412,23 @@ function App() {
 
               {currentStep < 4 ? (
                 <button
-                  onClick={() => setCurrentStep((prev) => (prev + 1) as Step)}
-                  className="continue-button"
-                  disabled={currentStep === 1 && !formData.name}
+                  type="button"
+                  onClick={() => {
+                    setCurrentStep((prev) => {
+                      const next = prev + 1;
+                      return next <= 4 ? (next as Step) : prev;
+                    });
+                  }}
+                  className="inline-flex h-10 animate-shimmer items-center justify-center rounded-md border border-blue-800 bg-[linear-gradient(110deg,#1e40af,45%,#3b82f6,55%,#1e40af)] bg-[length:200%_100%] px-4 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-blue-50"
                 >
                   <span>Continue</span>
-                  <ChevronRight className="h-4 w-4" />
+                  <ChevronRight className="h-4 w-4 ml-1" />
                 </button>
               ) : (
                 <button
+                  type="button"
                   onClick={() => console.log('API Created:', formData)}
-                  className="continue-button"
+                  className="inline-flex h-10 animate-shimmer items-center justify-center rounded-md border border-blue-800 bg-[linear-gradient(110deg,#1e40af,45%,#3b82f6,55%,#1e40af)] bg-[length:200%_100%] px-4 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-blue-50"
                 >
                   <span>Create API</span>
                   <Settings2 className="h-4 w-4 ml-1" />
