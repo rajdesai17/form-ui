@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-b from-blue-400 to-blue-200 min-h-screen font-sans p-4;
+  }
+}
+
+@layer components {
+  .app-container {
+    @apply bg-white rounded-2xl shadow-2xl overflow-hidden max-w-4xl mx-auto;
+  }
+
+  .form-input {
+    @apply w-full px-3 py-2 border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition-all duration-200 hover:border-gray-300;
+  }
+  
+  .form-select {
+    @apply w-full px-3 py-2 border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition-all duration-200 hover:border-gray-300;
+  }
+  
+  .form-textarea {
+    @apply w-full px-3 py-2 border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition-all duration-200 hover:border-gray-300 min-h-[80px];
+  }
+  
+  .step-indicator {
+    @apply w-7 h-7 rounded-full flex items-center justify-center text-xs font-medium transition-all duration-300 shadow-sm hover:shadow-md;
+  }
+  
+  .step-line {
+    @apply flex-1 h-0.5 transition-all duration-300;
+  }
+
+  .gradient-side {
+    @apply h-full w-[35%];
+    background: linear-gradient(180deg, 
+      rgb(37, 99, 235) 0%,
+      rgb(59, 130, 246) 25%,
+      rgb(96, 165, 250) 50%,
+      rgb(191, 219, 254) 75%,
+      rgb(255, 255, 255) 100%
+    );
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+  }
+
+  .content-side {
+    @apply flex-1 bg-white py-6 px-8 shadow-lg;
+  }
+
+  .continue-button {
+    @apply bg-gradient-to-r from-blue-600 to-blue-500 text-white px-5 py-2 rounded-lg hover:from-blue-700 hover:to-blue-600 transition-all duration-300 flex items-center space-x-2 text-sm font-medium shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+  }
+
+  .back-button {
+    @apply flex items-center space-x-1 text-gray-600 hover:text-gray-900 transition-colors text-sm px-4 py-2 rounded-lg hover:bg-gray-50;
+  }
+
+  .method-button {
+    @apply p-3 rounded-lg flex items-center space-x-2 transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-0.5;
+  }
+
+  .auth-toggle {
+    @apply p-4 bg-gray-50 rounded-lg border border-gray-100 hover:border-gray-200 transition-all duration-300 shadow-sm hover:shadow-md;
+  }
+
+  .role-chip {
+    @apply px-4 py-1.5 rounded-full text-sm transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-0.5;
+  }
+
+  .review-card {
+    @apply bg-gray-50 rounded-lg p-5 shadow-inner border border-gray-100;
+  }
+}
